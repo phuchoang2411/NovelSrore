@@ -18,7 +18,7 @@ const bookSchema = mongoose.Schema({
     required: true,
   },
   pages: {
-    type: String,
+    type: Number,
     required: true,
   },
   size: {
@@ -29,9 +29,8 @@ const bookSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  categoryId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'ProductCategory',
+  categoryName: {
+    type: String,
     required: true,
   },
   featuredImage: {
@@ -67,7 +66,7 @@ const bookSchema = mongoose.Schema({
     type: Number,
     default: 0,
   },
-  ownerId: {
+  ownerName: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true,
