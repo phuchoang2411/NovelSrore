@@ -5,6 +5,30 @@ const bookSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  author: {
+    type: String,
+    required: true,
+  },
+  publishers: {
+    type: String,
+    required: true,
+  },
+  translators: {
+    type: String,
+    required: true,
+  },
+  pages: {
+    type: String,
+    required: true,
+  },
+  size: {
+    type: String,
+    required: true,
+  },
+  releaseDate: {
+    type: String,
+    required: true,
+  },
   categoryId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'ProductCategory',
