@@ -29,8 +29,9 @@ const bookSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  categoryName: {
-    type: String,
+  categoryId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
     required: true,
   },
   featuredImage: {
@@ -66,7 +67,7 @@ const bookSchema = mongoose.Schema({
     type: Number,
     default: 0,
   },
-  ownerName: {
+  ownerId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true,

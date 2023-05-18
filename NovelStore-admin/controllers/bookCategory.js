@@ -1,4 +1,3 @@
-const { BookCategory } = require('../models');
 const { BookCategoryModel } = require('../models');
 
 const getAllCategory = async (req, res) => {
@@ -23,7 +22,19 @@ const addCategory = async (req, res, next) => {
   }
 };
 
+const deleteCategory = async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const category = await BookCategoryModel.findByIdAndDelete(id);
+    if (!category) res.status(404).send('Category is not found');
+    else res.redirect(301, '/book/category');
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+};
+
 module.exports = {
   addCategory,
   getAllCategory,
+  deleteCategory,
 };

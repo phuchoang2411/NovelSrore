@@ -7,31 +7,31 @@ const bookSchema = mongoose.Schema({
   },
   author: {
     type: String,
-    required: true,
+    default: '',
   },
   publishers: {
     type: String,
-    required: true,
+    default: '',
   },
   translators: {
     type: String,
-    required: true,
+    default: '',
   },
   pages: {
     type: Number,
-    required: true,
+    default: '',
   },
   size: {
     type: String,
-    required: true,
+    default: '',
   },
   releaseDate: {
     type: String,
-    required: true,
+    default: '',
   },
   categoryId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+    ref: 'BookCategory',
     required: true,
   },
   featuredImage: {
