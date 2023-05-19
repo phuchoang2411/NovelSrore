@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate-v2');
 
 const bookSchema = mongoose.Schema({
   name: {
@@ -7,31 +8,31 @@ const bookSchema = mongoose.Schema({
   },
   author: {
     type: String,
-    required: true,
+    default: '',
   },
   publishers: {
     type: String,
-    required: true,
+    default: '',
   },
   translators: {
     type: String,
-    required: true,
+    default: '',
   },
   pages: {
     type: Number,
-    required: true,
+    default: '',
   },
   size: {
     type: String,
-    required: true,
+    default: '',
   },
   releaseDate: {
     type: String,
-    required: true,
+    default: '',
   },
   categoryId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+    ref: 'BookCategory',
     required: true,
   },
   featuredImage: {
@@ -72,6 +73,12 @@ const bookSchema = mongoose.Schema({
     ref: 'User',
     required: true,
   },
+  totalViews: {
+    type: Number,
+    default: 0,
+  },
 });
+
+bookSchema.plugin(mongoosePaginate);
 
 module.exports = mongoose.model('book', bookSchema, 'books');

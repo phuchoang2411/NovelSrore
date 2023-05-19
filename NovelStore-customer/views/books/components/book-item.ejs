@@ -1,0 +1,15 @@
+<div class="book-item">
+  <a href="/books/<%= book._id %>">
+    <div class="featured-image">
+      <img src="" alt="<%= book.name %>" />
+    </div>
+  </a>
+
+  <h2 class="title">
+    <a href="/books/<%= book._id %>"><%= book.name %></a>
+  </h2>
+
+  <p class="description">
+    <%= book.description %>
+  </p>
+</div>
